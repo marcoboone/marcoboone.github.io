@@ -10,6 +10,41 @@ scheme 2 colors (black blue yellow gray white) 000000 14213d ffa630 e5e5e5 fffff
   --content: #a0aecd; 
   --contentA:  #ffa630; 
   --accent: #FF7477; 
+  --spacing: min(8vw, 8vh);  
+  --mainText: 6em; 
+  --descriptText: 2em; 
+  --other: 1em;
+  --lineSpacing: 2em;
+  overflow-x: hidden;
+
+}
+@media(orientation: portrait) and (max-width: 500px)
+{
+  :root{
+  --spacing: 1em; 
+  --mainText: 2em; 
+  --lineSpacing: 1em; 
+  --descriptText: 1em;
+  --other: .75em; 
+  }
+}
+@media(max-height: 800px) and (orientation: landscape)
+{
+  :root {
+    --descriptText: 1.5em; 
+ 
+
+  }
+}
+@media(max-height: 500px)
+{
+  :root {
+    --mainText: 4em; 
+    --descriptText: 1em; 
+    --lineSpacing: 1em;
+ 
+
+  } 
 }
 body {
   margin: 0; 
@@ -85,7 +120,7 @@ body {
   height: 20vh;
   color: var(--background);
   text-decoration: none;
-  font-size: 2em;
+  font-size: var(--descriptText);
   transition: 0.5s;
 }
 .mobileNav a:hover {
@@ -99,6 +134,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
+
   left: 0;
   margin-left: 0px;
   overflow-x: hidden;
@@ -108,11 +144,22 @@ body {
 .aboutSection
 {
   background-image: url(Images/DSC_0431.JPG);
-  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  background-size: cover;
+
   background-position-x: right;
  
   width: 100%;
   height: 100vh;
+}
+@media(orientation: portrait) and (max-width: 500px)
+{
+  .aboutSection
+  {
+    background-image: url(Images/DSC_0431\ -\ Copy.JPG);
+  }
 }
 
 .educationSection
@@ -128,7 +175,7 @@ body {
 #csExp
 {
   width: 100%; 
-  height: 250vh; 
+  height: fit-content; 
   
 }
 .whiteSection {
@@ -141,54 +188,40 @@ body {
 }
 .header{
    font-family: 'Roboto', sans-serif;
-   font-size: 6em;
+   font-size: var(--mainText);
    color: var(--contentA); 
    width: max-content; 
    
  
 
 }
+@media(orientation: portrait) and (max-width: 500px)
+{
+  .header{
+    width: 90vw; 
+  }
+}
 .mainAbout {
   text-align: left;
   width: 50%; 
-  padding: 10em;   
+  padding: var(--spacing);   
 }
 .grad
 {
   width: 100%;
-  background-image: linear-gradient(to right,rgb(255, 255, 255) 40%, rgba(255, 255, 255, 0.6) 60%,rgba(255, 255, 255, 0) 70% ); 
+  background-color: rgba(0, 0, 0,.3); 
   height: 100%;
 }
-
-.mainAbout p {
-  font-size: 100;
+.white 
+{
+  color: var(--background); 
 }
+
+
 
 .name{
   color: var(--accent);
   position: relative;
-}
-.name::before,
-.name::after
-{
- content: '';
- position: absolute; 
- top: 0; 
- bottom: 0; 
- right: 0; 
- left: 0; 
-}
-.name::before{
-  background: var(--background);   
-  border-left: 4px solid var(--content);
-  animation: type 3s  forwards; 
-
-}
-@keyframes type
-{
-  to {
-    left: 100%; 
-  } 
 }
 
 
@@ -197,43 +230,19 @@ body {
 
 .eduAbout
 {
-  padding-left: 10em; 
-  padding-block: 9em;
+  padding-left: var(--spacing); 
+  padding-block: var(--spacing);
   width: 50%;
   text-align: left;  
   float: left; 
 
 
 }
-.ecAbout{
-  padding-left: 10em; 
-  padding-right: 10em; 
-  padding-top: 6em; 
-  width: 100%;
-  text-align: left;  
-}
-.CSheader
-{
-  padding-left: 10em; 
-  padding-right: 10em; 
-  padding-top: 8em; 
-  text-align: left;
-  width: 100%; 
-  
-}
-.descript
-{
-  padding-block: 1em;
-  line-height: 2em;
-  width: 100%; 
-}
-
-
 .educationComponents {
   position: relative;
  
   width: 40%;
-  padding-block: 2em; 
+  padding-block: var(--descriptText); 
   height: 100%;
   float: right; 
   text-align: center;
@@ -276,7 +285,7 @@ body {
 .cover >span{
   color: var(--background);
   
-  font-size: 2em;
+  font-size: var(--descriptText);
 }
 .info>table{
   display: block; 
@@ -297,10 +306,54 @@ body {
 .container:hover >.info {
     opacity: 1;
   }
+@media(orientation: portrait) and (max-width: 500px)
+{
+  .eduAbout
+  {
+    display: block;
+    padding: var(--spacing); 
+    width: 100vw; 
+  }
+  .educationComponents
+  {
+    display: block; 
+    width: 100vw; 
+    padding: var(--spacing); 
+    height: 80%;
+  }
+}
+
+
+.ecAbout{
+  padding-left: var(--spacing); 
+  padding-right: var(--spacing); 
+  padding-top: var(--mainText); 
+  width: 100%;
+  text-align: left;  
+}
+.CSheader
+{
+  padding-left: var(--spacing); 
+  padding-right: var(--spacing); 
+  padding-block: var(--spacing); 
+  text-align: left;
+  width: 90vw; 
+  
+}
+.descript
+{
+  padding-block: var(--text);
+  font-size: var(--descriptText);
+  line-height: var(--lineSpacing);
+  width: 100%; 
+}
+
+
+
 .setInside
 {
-  padding-left:10em;
-  padding-right: 10em;
+  padding-left:var(--spacing);
+  padding-right: var(--spacing);
   width: 100%; 
   height: 50%;
 
@@ -335,12 +388,20 @@ body {
 {
   height: 40vh;
   min-width: 30vw; 
-  padding: 3em; 
+  padding: var(--descriptText); 
   background-color: var(--content); 
   border-radius: 15px;
   box-shadow: -1rem 0 3rem hsl(225 100% 100%/.3);
   color: var(--text); 
 }
+@media(orientation: portrait) and (max-width: 500px)
+{
+ .mediaElement
+ {
+   min-width: 80vw;
+ } 
+}
+
 .mediaElement:hover{
   transform: translateY(-5vh) !important;  
   color: white; 
@@ -352,42 +413,59 @@ transform: translateX(5vw);
 {
   margin-left: -5vw; 
 }
+.grid:has(section)
+{
+  height: fit-content;
+}
 
 
 
 .grid
 {
+
   overflow-y: hidden; 
   overflow-x: hidden; 
   background-color: var(--background2);
+ 
+  width: 100vw; 
+  height: fit-content;
+     
   display: grid; 
-  width: fit-content; 
-  position: relative;
-  margin: auto;   
-  grid-template-columns: 30vw 30vw 30vw;
-  grid-template-rows: 30vw 30vw 30vw;
-  gap: 1vh; 
+  --auto-grid-min-size: 30rem;
+  grid-template-columns: repeat(auto-fill, minmax(var(--auto-grid-min-size), 1fr));
+
+ 
+  gap: 1vw; 
   top: 20vh; 
+}
+@media (max-width: 500px)
+{
+  .CScontent
+  {
+    width: 95vw;
+  }
 }
 
 
 .CScontent
 {
+  
+ 
+  aspect-ratio: 1/1;
   display: flex; 
   flex-direction: column;
   justify-content: end;
   color: white; 
-  width: 30vw; 
-  height: 30vw;
   background-color: var(--content);
   transition: .25s;
- 
   background-size: cover; 
   overflow-y: hidden;
   border: 3px solid var(--content); 
   border-radius: 20px;
  
 }
+
+
 #snake{
   background-image: url(Images/snake_image.PNG);
   transition: 500ms;
