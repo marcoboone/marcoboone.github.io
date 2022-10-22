@@ -421,7 +421,7 @@ transform: translateX(5vw);
 
  
   gap: 1vw; 
-  top: 20vh; 
+  
 }
 @media (max-width: 500px)
 {
@@ -439,7 +439,7 @@ transform: translateX(5vw);
   aspect-ratio: 1/1;
   display: flex; 
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   color: white; 
   background-color: var(--content);
   transition: .25s;
@@ -504,14 +504,22 @@ background-image: url(Images/website.PNG);
 
 .card-content
 {
-  --padding: 1.5rem; 
-  padding: var(--padding); 
+  --padding: 5vh; 
+  padding-left: var(--padding); 
+  padding-right: var(--padding); 
+  padding-bottom: var(--padding); 
+
+
+  
+  height: fit-content;
+ 
+  
 
   background: linear-gradient(
      hsl(0 0% 0%/0),
      hsl(0 0% 0%/.5)20%,
      hsl(0 0% 0%/1)); 
-    transform: translateY(75%);
+     transform: translateY(85%);
      transition: 500ms; 
      
 
@@ -521,6 +529,7 @@ background-image: url(Images/website.PNG);
 }
 .card-body
 {
+ 
   padding-block: var(--padding);
   text-align: left;
 }
