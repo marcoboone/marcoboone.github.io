@@ -11,41 +11,14 @@ scheme 2 colors (black blue yellow gray white) 000000 14213d ffa630 e5e5e5 fffff
   --contentA:  #ffa630; 
   --accent: #FF7477; 
   --spacing: min(8vw, 8vh);  
-  --mainText: 6em; 
-  --descriptText: 2em; 
-  --other: 1em;
-  --lineSpacing: 2em;
+  --mainText: 5vw; 
+  --descriptText: clamp(.75em, 2vw, 2vw); 
+  --other: max(1vw, 2vh);
+  --lineSpacing: min (5vh, 5vw);
   overflow-x: hidden;
 
 }
-@media(orientation: portrait) and (max-width: 500px)
-{
-  :root{
-  --spacing: 1em; 
-  --mainText: 2em; 
-  --lineSpacing: 1em; 
-  --descriptText: 1em;
-  --other: .75em; 
-  }
-}
-@media(max-height: 800px) and (orientation: landscape)
-{
-  :root {
-    --descriptText: 1.5em; 
- 
 
-  }
-}
-@media(max-height: 500px)
-{
-  :root {
-    --mainText: 4em; 
-    --descriptText: 1em; 
-    --lineSpacing: 1em;
- 
-
-  } 
-}
 body {
   margin: 0; 
   overflow-x: hidden;
@@ -120,7 +93,7 @@ body {
   height: 20vh;
   color: var(--background);
   text-decoration: none;
-  font-size: var(--descriptText);
+  font-size: var(F--descriptText);
   transition: 0.5s;
 }
 .mobileNav a:hover {
@@ -154,7 +127,7 @@ body {
   width: 100%;
   height: 100vh;
 }
-@media(orientation: portrait) and (max-width: 500px)
+@media(orientation: portrait) 
 {
   .aboutSection
   {
@@ -190,7 +163,7 @@ body {
    font-family: 'Roboto', sans-serif;
    font-size: var(--mainText);
    color: var(--contentA); 
-   width: max-content; 
+   width: 100vw; 
    
  
 
@@ -270,6 +243,13 @@ body {
   transition: .5s; 
   align-items: center;
 }
+@media(orientation: portrait) 
+{
+  .info{
+    align-items: left; 
+    text-align: left;
+  }
+}
 
 .cover {
   display: flex;
@@ -306,7 +286,7 @@ body {
 .container:hover >.info {
     opacity: 1;
   }
-@media(orientation: portrait) and (max-width: 500px)
+@media(orientation: portrait) 
 {
   .eduAbout
   {
@@ -387,14 +367,19 @@ body {
 .mediaElement
 {
   height: 40vh;
-  min-width: 30vw; 
+  min-width: 40vw; 
   padding: var(--descriptText); 
+  font-size: var(--other);
   background-color: var(--content); 
   border-radius: 15px;
   box-shadow: -1rem 0 3rem hsl(225 100% 100%/.3);
   color: var(--text); 
 }
-@media(orientation: portrait) and (max-width: 500px)
+.mediaElement>p
+{
+  padding-block: 1em;
+}
+@media(orientation: portrait) 
 {
  .mediaElement
  {
@@ -403,7 +388,7 @@ body {
 }
 
 .mediaElement:hover{
-  transform: translateY(-5vh) !important;  
+  transform: translateY(-3vh) !important;  
   color: white; 
 }
 .mediaElement:hover~.mediaElement{
@@ -462,6 +447,7 @@ transform: translateX(5vw);
   overflow-y: hidden;
   border: 3px solid var(--content); 
   border-radius: 20px;
+  font-size: var(--other);
  
 }
 
