@@ -93,7 +93,7 @@ body {
   height: 20vh;
   color: var(--background);
   text-decoration: none;
-  font-size: var(F--descriptText);
+  font-size: var(--descriptText);
   transition: 0.5s;
 }
 .mobileNav a:hover {
